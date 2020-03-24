@@ -104,3 +104,28 @@ function Distance(p1, p2)
 
     return Math.sqrt(difX + difY);
 }
+
+// Return the intersection point (by its coordinates and its slope)
+// given the points of two lines
+function LineLineIntersection(x1, y1, x2, y2, x3, y3, x4, y4)
+{
+    // https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection
+    const den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
+    if (den != 0)
+    {
+        const t = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / den;
+        const u = -((x1 - x2) * (y1 - y3) - (y1 - y2) * (x1 - x3)) / den;
+
+        if (t > 0 && t < 1 && u > 0)
+        {
+            return {
+                x: x1 + t * (x2 - x1),
+                y: y1 + t * (y2 - y1),
+                t: t,
+                u: u,
+                slope: den
+            };
+        }
+    }
+    return null;
+}
