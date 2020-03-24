@@ -26,7 +26,7 @@ var graphicAssets = {
     wall: {
         // https://www.textures-resource.com/pc_computer/wolf3d/texture/1375/
         image: null,
-        path: "../assets/wolf3dwalls.png"
+        path: "./assets/wolf3dwalls.png"
     }
 }
 
